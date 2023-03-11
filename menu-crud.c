@@ -18,7 +18,7 @@ struct myAluno {
 };
 
 float funcMedia(float, float);
-novoMenu();
+int novoMenu();
 
 int main () {
 	bool ciclo = true;
@@ -28,10 +28,9 @@ int main () {
 
 }
 
-novoMenu() {
+int novoMenu() {
 	struct myAluno a[20];
 	int num_Alunos = 0;
-	int *p = NULL;
 	int j, opcao;
 	int i = 0;
 	puts("\n");
@@ -92,9 +91,9 @@ novoMenu() {
 			scanf("%d", &j);
 			for (int i = 0; i < num_Alunos; i++) {
 				if (a[i].idAluno==j) {
-					a[i].idAluno = p;
-					a[i].nome[i] = "\n";
-					a[i].idade = p;
+					a[i].idAluno = 0;
+					a[i].nome[i] = 0;
+					a[i].idade = 0;
 					a[i].nota1 = 0;
 					a[i].nota2 = 0;
 					a[i].media = 0;
@@ -118,9 +117,7 @@ novoMenu() {
 			// Part 5 is ready to go.
 		} else if (opcao == 5) {
 			for(i=0; i < num_Alunos; i++) {
-				if(a[i].idAluno - 1 < a[i].idAluno) {
-					printf("%d Nome: %s\t Idade: %d\t Nota (1): %f\t Nota (2): %f\t Media: %f\n", a[i].idAluno, a[i].nome, a[i].idade, a[i].nota1, a[i].nota2, a[i].media);
-				}
+				printf("%d Nome: %s\t Idade: %d\t Nota (1): %f\t Nota (2): %f\t Media: %f\n", a[i].idAluno, a[i].nome, a[i].idade, a[i].nota1, a[i].nota2, a[i].media);
 			}
 			// Part 6 is ready to go.
 		} else if (opcao == 6) {
