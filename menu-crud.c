@@ -17,6 +17,7 @@ struct myAluno {
 
 };
 
+void porOrdem();
 float funcMedia(float, float);
 int novoMenu();
 
