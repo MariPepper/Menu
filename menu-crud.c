@@ -35,17 +35,18 @@ int novoMenu() {
 	int j, opcao;
 	int i = 0;
 	puts("\n");
-	puts("1. Adicionar aluno");
-	puts("2. Alterar aluno");
-	puts("3. Eliminar aluno");
-	puts("4. Mostrar 1 aluno");
-	puts("5. Visualizar lista para corrigir");
-	puts("6. Visualizar lista corrigida");
-	puts("7. Em teste");
-	puts("8. Sair");
+	puts("1. Adicionar aluno"); // add student
+	puts("2. Alterar aluno"); // edit student info
+	puts("3. Eliminar aluno"); // reset to 0 for editing
+	puts("4. Mostrar 1 aluno"); // display one student
+	puts("5. Visualizar lista para corrigir"); // display full list for editing
+	puts("6. Visualizar lista corrigida"); // display list with editing
+	puts("7. Em teste"); // test for reverse editing by last input
+	puts("8. Sair"); // exit program
 	puts("\n");
 	while(1) {
-		printf("\nEscolha uma opcao: ");
+		puts("\n");
+		printf("Escolha uma opcao: ");
 		scanf("%d", &opcao);
 		// Part 1 is ready to go.
 		if(opcao == 1) {
@@ -143,6 +144,7 @@ int novoMenu() {
 					idUsado[i] = a[i].idAluno;
 				}
 			}
+			// Part 7 is ready to go.
 		} else if (opcao==7) {
 			printf("\nInsira o ID do aluno: ");
 			scanf("%d", &j);
