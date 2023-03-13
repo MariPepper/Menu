@@ -41,7 +41,7 @@ int novoMenu() {
 	puts("4. Mostrar 1 aluno"); // display one student
 	puts("5. Visualizar lista para corrigir"); // display full list for editing
 	puts("6. Visualizar lista corrigida"); // display list with editing
-	puts("7. Em teste"); // test for reverse editing by last input
+	puts("7. Em teste"); // reset to a negative number for editing
 	puts("8. Sair"); // exit program
 	puts("\n");
 	while(1) {
@@ -151,10 +151,12 @@ int novoMenu() {
 			printf("\n------------------------------------------------------------------------------------------------\n");
 			for (int i = j-1; i < num_Alunos-1; i++) {
 				if (a[i].idAluno==j) {
+					a[i].idAluno = -1;
 					a[i] = a[i+1];
 					printf("%d Nome: %s\t Idade: %d\t Nota (1): %f\t Nota (2): %f\t Media: %f\n", a[i].idAluno, a[i].nome, a[i].idade, a[i].nota1, a[i].nota2, a[i].media);
 				}
 			}
+			num_Alunos--; 
 		} else if (opcao == 8) {
 			printf("Volte sempre!\n");
 			break;
