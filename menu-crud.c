@@ -108,8 +108,9 @@ int novoMenu() {
 			}
 			if (!found) {
 				printf("\nID do aluno não encontrado.");
-			// Part 4 is ready to go.
-			} else if (opcao==4) {
+				// Part 4 is ready to go.
+			}
+		} else if (opcao==4) {
 			int k = 0;
 			printf("\nInsira o ID do aluno: ");
 			scanf("%d", &j);
@@ -185,3 +186,6 @@ void porOrdem(struct myAluno a[20], int num_Alunos) {
 		}
 	}
 }
+
+
+
