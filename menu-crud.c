@@ -37,11 +37,11 @@ int novoMenu() {
 	puts("\n");
 	puts("1. Adicionar aluno"); // add student
 	puts("2. Alterar aluno"); // edit student info
-	puts("3. Eliminar aluno"); // reset to 0 for editing
-	puts("4. Mostrar 1 aluno"); // display one student
-	puts("5. Visualizar lista para corrigir"); // display full list for editing
-	puts("6. Visualizar lista corrigida"); // display list with editing
-	puts("7. Em teste"); // reset to a negative number for editing
+	puts("3. Eliminar aluno 1"); // reset to 0 for editing
+	puts("4. Eliminar aluno 2"); // delete the students
+	puts("5. Mostrar 1 aluno"); // display one student
+	puts("6. Visualizar lista para corrigir"); // display full list for editing
+	puts("7. Visualizar lista corrigida"); // display list with editing
 	puts("8. Sair"); // exit program
 	puts("\n");
 	while(1) {
@@ -108,9 +108,22 @@ int novoMenu() {
 			}
 			if (!found) {
 				printf("\nID do aluno não encontrado.");
-			}
 			// Part 4 is ready to go.
-		} else if (opcao == 4) {
+			} else if (opcao==4) {
+			int k = 0;
+			printf("\nInsira o ID do aluno: ");
+			scanf("%d", &j);
+			printf("\n------------------------------------------------------------------------------------------------\n");
+			for (int i = k; i < num_Alunos-1; i++) {
+				if (a[i].idAluno==j) {
+					a[i].idAluno = a[i-i].idAluno;
+					a[i] = a[i+1];
+					printf("%d Nome: %s\t Idade: %d\t Nota (1): %f\t Nota (2): %f\t Media: %f\n", a[i].idAluno, a[i].nome, a[i].idade, a[i].nota1, a[i].nota2, a[i].media);
+				}
+			}
+			num_Alunos--;
+			// Part 5 is ready to go.
+		} else if (opcao == 5) {
 			printf("\nInsira o ID do aluno: ");
 			scanf("%d", &j);
 			for(i=0; i < num_Alunos; i++) {
@@ -119,15 +132,15 @@ int novoMenu() {
 					printf("%d Nome: %s\t Idade: %d\t Nota (1): %f\t Nota (2): %f\t Media: %f\n", a[i].idAluno, a[i].nome, a[i].idade, a[i].nota1, a[i].nota2, a[i].media);
 				}
 			}
-			// Part 5 is ready to go.
-		} else if (opcao == 5) {
+			// Part 6 is ready to go.
+		} else if (opcao == 6) {
 			porOrdem(a, num_Alunos);
 			printf("\n------------------------------------------------------------------------------------------------\n");
 			for(i=0; i < num_Alunos; i++) {
 				printf("%d Nome: %s\t Idade: %d\t Nota (1): %f\t Nota (2): %f\t Media: %f\n", a[i].idAluno, a[i].nome, a[i].idade, a[i].nota1, a[i].nota2, a[i].media);
 			}
-			// Part 6 is ready to go.
-		} else if (opcao == 6) {
+			// Part 7 is ready to go.
+		} else if (opcao == 7) {
 			int idUsado[20] = {0};
 			printf("\nLista de alunos:\n");
 			printf("\n------------------------------------------------------------------------------------------------\n");
@@ -144,19 +157,7 @@ int novoMenu() {
 					idUsado[i] = a[i].idAluno;
 				}
 			}
-			// Part 7 is ready to go.
-		} else if (opcao==7) {
-			printf("\nInsira o ID do aluno: ");
-			scanf("%d", &j);
-			printf("\n------------------------------------------------------------------------------------------------\n");
-			for (int i = j-1; i < num_Alunos-1; i++) {
-				if (a[i].idAluno==j) {
-					a[i].idAluno = -1;
-					a[i] = a[i+1];
-					printf("%d Nome: %s\t Idade: %d\t Nota (1): %f\t Nota (2): %f\t Media: %f\n", a[i].idAluno, a[i].nome, a[i].idade, a[i].nota1, a[i].nota2, a[i].media);
-				}
-			}
-			num_Alunos--; 
+			// Part 8 is ready to go.
 		} else if (opcao == 8) {
 			printf("Volte sempre!\n");
 			break;
