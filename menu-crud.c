@@ -207,6 +207,3 @@ void porOrdem(struct myAluno a[20], int num_Alunos) {
 		}
 	}
 }
-
-
-
