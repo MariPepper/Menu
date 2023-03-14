@@ -42,7 +42,9 @@ int novoMenu() {
 	puts("5. Mostrar 1 aluno"); // display one student
 	puts("6. Visualizar lista para corrigir"); // display full list for editing
 	puts("7. Visualizar lista corrigida"); // display list with editing
-	puts("8. Sair"); // exit program
+	puts("8. Duplicar lista"); // duplicate list
+	puts("9. Apagar lista"); // delete all list
+	puts("10. Sair"); // exit program
 	puts("\n");
 	while(1) {
 		puts("\n");
@@ -160,6 +162,25 @@ int novoMenu() {
 			}
 			// Part 8 is ready to go.
 		} else if (opcao == 8) {
+			printf("\n------------------------------------------------------------------------------------------------\n");
+			for (int i = 0; i < num_Alunos; i++) {
+				printf("%d Nome: %s\t Idade: %d\t Nota (1): %f\t Nota (2): %f\t Media: %f\n", a[i].idAluno, a[i].nome, a[i].idade, a[i].nota1, a[i].nota2, a[i].media);
+			}
+			// Part 9 is ready to go.
+		} else if (opcao == 9) {
+			printf("\n------------------------------------------------------------------------------------------------\n");
+			for (int i = 0; i < num_Alunos-1; i++) {
+				a[i].idAluno = a[i+1].idAluno;
+				strcpy(a[i].nome, a[i+1].nome);
+				a[i].idade = a[i+1].idade;
+				a[i].nota1 = a[i+1].nota1;
+				a[i].nota2 = a[i+1].nota2;
+				a[i].media = a[i+1].media;
+				printf("%d Nome: %s\t Idade: %d\t Nota (1): %f\t Nota (2): %f\t Media: %f\n", a[i].idAluno, a[i].nome, a[i].idade, a[i].nota1, a[i].nota2, a[i].media);
+			}
+			num_Alunos--;
+			// Part 10 is ready to go.
+		} else if (opcao == 10) {
 			printf("Volte sempre!\n");
 			break;
 		} else {
